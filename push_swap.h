@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:37:49 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/26 10:40:45 by hlaaz            ###   ########.fr       */
+/*   Updated: 2025/12/28 23:06:49 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-#endif  
+typedef struct s_stack
+{
+	int				value;
+	int				index;
+	int				cost;
+	struct s_stack	*target_node;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}		t_stack;
+
+char	**ft_split(char *s, char c);
+
+#endif

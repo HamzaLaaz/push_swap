@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 22:41:01 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/27 21:12:48 by hlaaz            ###   ########.fr       */
+/*   Updated: 2025/12/28 21:05:02 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,33 @@ static int	count_words(char const *s, char c)
 	return (count);
 }
 
-char	*creat_word(char *s, c)
+static char	*creat_word(char **s, char c)
 {
+	char	*str;
+	char	*ptr;
+	int		i;
+	int		j;
 
+	while (**s && **s == c)
+		(*s)++;
+	ptr = *s;
+	i = 0;
+	while (ptr[i] && ptr[i] != c)
+		i++;
+	str = malloc(i +1);
+	if (!str)
+		return (NULL);
+	j = 0;
+	while (j < i)
+	{
+		str[j] = ptr[j];
+		j++;
+	}
+	str [j] = '\0';
+	*s += i;
+	return (str);
 }
+
 static void	free_words(char **strs, int i)
 {
 	while (i >= 0)
