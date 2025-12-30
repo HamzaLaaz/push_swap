@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 22:41:01 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/29 01:11:03 by hlaaz            ###   ########.fr       */
+/*   Updated: 2025/12/29 13:57:12 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,9 @@ char	**ft_split(char *s, char c)
 	}
 	strs[i] = NULL;
 	return (strs);
+}
+void	exit_error()
+{
+   write(1, "Error\n", 7);
+   exit(1);
 }
