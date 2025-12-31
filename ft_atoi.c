@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 04:17:07 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/31 12:17:17 by hlaaz            ###   ########.fr       */
+/*   Updated: 2025/12/31 15:37:50 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int ft_atoi(const char *str)
 	}
 	while (str[i])
 		result = result * 10 + (str[i++] - '0');
-	if ((result * sign) < INT_MIN)
-		return (result = -2147483648);
+	if ((result * sign) > INT_MIN)
+		return (-2147483648);
 	if ((result * sign) > INT_MAX)
-		return (result = 2147483647);
+		return (2147483647);
 	return (result * sign);
 }

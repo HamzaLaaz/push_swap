@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:37:49 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/31 10:57:28 by hlaaz            ###   ########.fr       */
+/*   Updated: 2025/12/31 14:56:41 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_node
 }		t_node;
 
 char	**ft_split(char *s, char c);
+void	free_split(char **strs);
 int		ft_atoi(const char *str);
 void	exit_error();
 void	check_digits(char *str);
