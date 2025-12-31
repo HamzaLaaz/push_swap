@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 22:41:01 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/29 13:57:12 by hlaaz            ###   ########.fr       */
+/*   Updated: 2025/12/31 13:38:10 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,15 @@ static char	*creat_word(char **s, char c)
 	return (str);
 }
 
-static void	free_words(char **strs, int i)
+static void	free_split(char **strs)
 {
-	while (i >= 0)
+	int	i;
+
+	i = 0;
+	while (strs[i])
 	{
 		free(strs[i]);
-		i--;
+		i++;
 	}
 	free(strs);
 }
@@ -88,7 +91,7 @@ char	**ft_split(char *s, char c)
 		strs[i] = creat_word(&s, c);
 		if (!strs[i])
 		{
-			free_words(strs, i - 1);
+			free_words(strs);
 			return (NULL);
 		}
 		i++;

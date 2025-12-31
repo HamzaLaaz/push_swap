@@ -2,17 +2,16 @@
 
 int main(int argc, char **argv)
 {
-	char *str = argv[1];
-	(void)argc;
-	check_degit(str);
-	char **strs= ft_split(str, ' ');
-	int a = 0;
-	int i = 0;
+	t_node	*stack_a;
+	t_node	*stack_b;
+	int	i;
 
-	while (strs[i])
-	{
-		a = ft_atoi(strs[i]);
-		printf("%d\n", a);
-		i++;
-	}
+	stack_a = NULL;
+	stack_b = NULL;
+	// if (argc == 1 || (argc == 2 && !argv[1][0]))
+	// 	return (1);
+	// else if (argc == 2)
+	// 	argv = ft_split(argv[1], ' ');
+	// else
+	// 	argv = argv + 1;
 }

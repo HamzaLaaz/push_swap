@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:37:49 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/29 14:24:30 by hlaaz            ###   ########.fr       */
+/*   Updated: 2025/12/31 10:57:28 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct s_stack
+typedef struct s_node
 {
 	int				value;
 	int				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}		t_stack;
+	struct s_node	*next;
+	struct s_node	*prev;
+}		t_node;
 
 char	**ft_split(char *s, char c);
 int		ft_atoi(const char *str);
 void	exit_error();
-void	check_degit(char *str);
+void	check_digits(char *str);
 
 #endif

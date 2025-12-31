@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   the_error_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 04:17:07 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/31 12:17:17 by hlaaz            ###   ########.fr       */
+/*   Created: 2025/12/31 11:51:05 by hlaaz             #+#    #+#             */
+/*   Updated: 2025/12/31 11:53:23 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_atoi(const char *str)
+void	free_stack(t_node **stack)
 {
-    long result = 0;
-    int sign = 1;
-    int i = 0;
+	t_node	*tmp;
+	t_node	*curr;
 
-	if ((str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (!stack || !*stack)
+		return ;
+	curr = *stack;
+	while (curr)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		tmp = curr->next;
+		free(curr);
+		curr = tmp;
 	}
-	while (str[i])
-		result = result * 10 + (str[i++] - '0');
-	if ((result * sign) < INT_MIN)
-		return (result = -2147483648);
-	if ((result * sign) > INT_MAX)
-		return (result = 2147483647);
-	return (result * sign);
+	*stack = NULL;
+}
+
+void	exit_with_error(t_node **stack, char **strs)
+{
+	free_stack(stack);
+
+	write(2, "Error\n", 6);
+	exit(1);
 }
