@@ -6,8 +6,8 @@
     {
       "id": "CdB_8hNIj4DWxCegoc0dp",
       "type": "text",
-      "x": 126,
-      "y": 152,
+      "x": 127,
+      "y": 149,
       "width": 352.27972412109375,
       "height": 400,
       "angle": 0,
@@ -23,11 +23,11 @@
       "index": "a0",
       "roundness": null,
       "seed": 1957841918,
-      "version": 98,
-      "versionNonce": 723737826,
+      "version": 103,
+      "versionNonce": 1443117870,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1767090981894,
+      "boundElements": [],
+      "updated": 1767254097144,
       "link": null,
       "locked": false,
       "text": "int main(int argc, char **argv)\n{\n        char *str = argv[1];\n        (void)argc;\n        check_degit(str);\n        char **strs= ft_split(str, ' ');\n        int a = 0;\n        int i = 0;\n\n        while (strs[i])\n        {\n                a = ft_atoi(strs[i]);\n                printf(\"%d\\n\", a);\n                i++;\n        }\n}",
@@ -63,7 +63,7 @@
       "version": 3,
       "versionNonce": 1807826978,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1767090953967,
       "link": null,
       "locked": false,
@@ -79,10 +79,7 @@
       ],
       "pressures": [],
       "simulatePressure": true,
-      "lastCommittedPoint": [
-        0.0001,
-        0.0001
-      ]
+      "lastCommittedPoint": null
     }
   ],
   "appState": {

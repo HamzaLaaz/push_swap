@@ -6,36 +6,13 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 11:40:21 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/31 15:43:22 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/01 15:30:55 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void add_node_back(t_node **stack, int value)
-{
-    t_node *new_node;
-    t_node *last;
-
-    new_node = malloc(sizeof(t_node));
-    if (!new_node)
-        return ;
-    new_node->value = value;
-    new_node->next = NULL;
-    if (*stack == NULL)
-    {
-        *stack = new_node;
-        new_node->prev = NULL;
-        return ;
-    }
-    last = *stack;
-    while (last->next)
-        last = last->next;
-    last->next = new_node;
-    new_node->prev = last;
-}
-
-static void	check_digits(char *str)
+static int	check_digits(char *str)
 {
 	int	i;
 
@@ -70,10 +47,20 @@ static int	check_duplicates(t_node *stack, int new_val)
 	return (0);
 }
 
+// static long	checker(t_node **stack_a, char *str, long val)
+// {
+// 	val = ft_atol(strs);
+// 	if (val > INT_MAX || val < INT_MIN)
+// 		exit_with_error(stack_a, strs);
+// 	if (check_duplicates(*stack_a, (int)val))
+// 		exit_with_error(stack_a, strs);
+// 	add_node_back(stack_a, (int)val);
+// }
+
 void	parsing_argv(int argc, char **argv, t_node **stack_a)
 {
 	char	**strs;
-	int		val;
+	long		val;
 	int		i;
 	int		j;
 
@@ -81,19 +68,22 @@ void	parsing_argv(int argc, char **argv, t_node **stack_a)
 	while (i < argc)
 	{
 		strs = ft_split(argv[i], ' ');
+		if (!strs)
+			exit_error();
 		j = 0;
 		while(strs[j])
 		{
-			if(check_digits(strs[i]))
+			if(check_digits(strs[j]))
 				exit_with_error(stack_a, strs);
-			val = ft_atoi(strs[i]);
-			if (val == INT_MAX || val == INT_MIN)
+			val = ft_atol(strs[j]);
+			if (val > INT_MAX || val < INT_MIN)
 				exit_with_error(stack_a, strs);
-			if (check_duplicates(*stack_a, val))
+			if (check_duplicates(*stack_a, (int)val))
 				exit_with_error(stack_a, strs);
-			add_node_back(stack_a, val);
+			add_node_back(stack_a, (int)val);
 			j++;
 		}
+		free_split(strs);
 		i++;
 	}
 }

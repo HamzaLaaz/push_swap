@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 04:17:07 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/31 15:37:50 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/01 13:41:31 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-    long result = 0;
-    int sign = 1;
-    int i = 0;
+	long	res;
+	long	sign;
+	int		i;
 
-	if ((str[i] >= 9 && str[i] <= 13))
+	res = 0;
+	sign = 1;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign = -1;
-		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i++] - '0');
+		if (res * sign > INT_MAX)
+			return (2147483648);
+		if (res * sign < INT_MIN)
+			return (-2147483649);
 	}
-	while (str[i])
-		result = result * 10 + (str[i++] - '0');
-	if ((result * sign) > INT_MIN)
-		return (-2147483648);
-	if ((result * sign) > INT_MAX)
-		return (2147483647);
-	return (result * sign);
+	return (res * sign);
 }

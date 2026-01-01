@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 22:41:01 by hlaaz             #+#    #+#             */
-/*   Updated: 2025/12/31 15:39:48 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/01 08:51:54 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,7 @@ static char	*creat_word(char **s, char c)
 		j++;
 	}
 	str [j] = '\0';
-	*s += i;void	exit_error()
-{
-   write(1, "Error\n", 7);
-   exit(1);
-}
+	*s += i;
 	return (str);
 }
 

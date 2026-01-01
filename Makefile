@@ -6,11 +6,17 @@
 #    By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/30 09:32:14 by hlaaz             #+#    #+#              #
-#    Updated: 2025/12/31 11:54:19 by hlaaz            ###   ########.fr        #
+#    Updated: 2026/01/01 14:44:14 by hlaaz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_atoi.c ft_split.c main.c
+SRCS	= ft_atol.c  \
+		ft_split.c \
+		main.c \
+		parsing.c \
+		error_free.c \
+		list_utils.c \
+		rotate.c
 OBJS	= $(SRCS:.c=.o)
 CC		= cc
 RM		= rm -f
