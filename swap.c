@@ -1,55 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/01 11:55:30 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/03 10:26:09 by hlaaz            ###   ########.fr       */
+/*   Created: 2026/01/02 15:09:30 by hlaaz             #+#    #+#             */
+/*   Updated: 2026/01/03 08:12:37 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_node **stack, int i)
+static void	swap(t_node **stack, int i)
 {
 	t_node	*first;
 	t_node	*second;
-	t_node	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	first = *stack;
 	second = first->next;
-	last = first;
-	while (last->next)
-		last = last->next;
 	*stack = second;
+	first->next = second->next;
+	second->next = first;
+	first->prev = second;
 	second->prev = NULL;
-	last->next = first;
-	first->prev = last;
-	first->next = NULL;
 	if (i == 1)
-		write(1, "ra\n", 3);
+		write(1, "sa\n", 3);
 	else if (i == 2)
-		write(1, "rb\n", 3);
+		write(1, "sb\n", 3);
 	else
 		return ;
 }
-void	ra(t_node **a)
+
+void	sa(t_node **a)
 {
-	rotate(a, 1);
+	swap(a, 1);
 }
 
-void	rb(t_node **b)
+void sb(t_node **b)
 {
-	rotate(b, 2);
+	swap(b, 2);
 }
 
-void	rr(t_node **a, t_node **b)
+void ss(t_node **a, t_node **b)
 {
-	rotate(a, 3);
-	rotate(b, 3);
-	write(1, "rr\n", 3);
+	swap(a, 3);
+	swap(b, 3);
+	write(1, "ss\n", 3);
 }

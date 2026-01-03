@@ -2,6 +2,12 @@
 
 static void	sort(t_node **stack_a, t_node **stack_b, int size)
 {
+	if (size == 0 || check_if_sorte(stack_a))
+	{
+		free_stack(&stack_a);
+		free_stack(&stack_b);
+		return ;
+	}
 	if (size == 2)
 		sa(&stack_a);
 	else if (size == 3)
@@ -25,12 +31,13 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
-	else
-		argv = argv + 1;
 	parsing_argv(argc, argv, &stack_a);
 	size_s = ft_lstsize(stack_a);
+	if (size_s == 2)
+ 		sa(&stack_a);
+	free_stack(&stack_a);
 	sort(&stack_a, &stack_b, size_s);
-
+	return (0);
 }
 
 

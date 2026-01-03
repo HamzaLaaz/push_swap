@@ -6,13 +6,13 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 17:42:08 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/01 17:53:22 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/02 15:27:08 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_node **src, t_node **dest, char *op)
+static void	push(t_node **src, t_node **dest, int i)
 {
 	t_node *push;
 
@@ -26,6 +26,18 @@ void	push(t_node **src, t_node **dest, char *op)
 	if (*dest)
 		(*dest)->prev = push;
 	*dest = push;
-	if (op)
-		write(1, op, 3);
+	if (i == 1)
+		write(1, "pa\n", 3);
+	if (i == 2)
+		write(1, "pb\n", 3);
+}
+
+void	pa(t_node **a, t_node **b)
+{
+	push(b, a, 1);
+}
+
+void	pb(t_node **a, t_node **b)
+{
+	push(a, b, 2);
 }
