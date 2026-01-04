@@ -6,7 +6,7 @@
 #    By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/30 09:32:14 by hlaaz             #+#    #+#              #
-#    Updated: 2026/01/03 10:35:04 by hlaaz            ###   ########.fr        #
+#    Updated: 2026/01/04 14:27:59 by hlaaz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,10 @@ SRCS	= ft_atol.c  \
 		push.c \
 		swap.c \
 		rrotate.c \
-		rotate.c
+		rotate.c \
+		sort.c \
+		sort_utils.c \
+		chunk_sort.c
 OBJS	= $(SRCS:.c=.o)
 CC		= cc
 RM		= rm -f

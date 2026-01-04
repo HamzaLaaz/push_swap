@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 11:40:21 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/03 11:20:09 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/04 16:29:49 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ static int	check_digits(char *str)
 {
 	int	i;
 
-
 	i = 0;
-	if (!str)
+	if (!str || !str[0])
 		return (1);
-	while(str[i])
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-' || str[i] == '+')
-			i++;
-		if (str[i] < '0' ||str[i] > '9')
+		i++;
+		if (!str[i])
 			return (1);
-		else
-			i++;
+	}
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -47,10 +49,10 @@ static int	check_duplicates(t_node *stack, int new_val)
 
 static void	checker(t_node **stack_a, char **strs, int j)
 {
-	long val;
+	long	val;
 
 	val = ft_atol(strs[j]);
-	if (val > INT_MAX || val < INT_MIN)
+	if (val > 2147483647 || val < (-2147483648))
 		exit_with_error(stack_a, strs);
 	if (check_duplicates(*stack_a, (int)val))
 		exit_with_error(stack_a, strs);
@@ -70,11 +72,11 @@ void	parsing_argv(int argc, char **argv, t_node **stack_a)
 		if (!strs || !*strs)
 			exit_with_error(stack_a, strs);
 		j = 0;
-		while(strs[j])
+		while (strs[j])
 		{
-			if(check_digits(strs[j]))
+			if (check_digits(strs[j]))
 				exit_with_error(stack_a, strs);
-			checker(stack_a, strs, j); // Much cleaner
+			checker(stack_a, strs, j);
 			j++;
 		}
 		free_split(strs);

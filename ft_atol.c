@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 04:17:07 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/01 13:41:31 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/04 10:33:03 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ long	ft_atol(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i++] - '0');
-		if (res * sign > INT_MAX)
+		if (res * sign > 2147483647)
 			return (2147483648);
-		if (res * sign < INT_MIN)
+		if (res * sign < (-2147483648))
 			return (-2147483649);
 	}
 	return (res * sign);

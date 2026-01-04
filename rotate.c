@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 11:55:30 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/03 10:26:09 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/04 10:17:45 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	rotate(t_node **stack, int i)
 	else
 		return ;
 }
+
 void	ra(t_node **a)
 {
 	rotate(a, 1);

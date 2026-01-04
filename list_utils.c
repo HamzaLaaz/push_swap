@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 10:57:17 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/03 10:32:03 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/04 14:55:27 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 void	add_node_back(t_node **stack, int value)
 {
-	t_node *new;
-	t_node *last;
+	t_node	*new;
+	t_node	*last;
 
 	new = malloc(sizeof(t_node));
 	if (!new)
-		return ;
+	{
+		free_stack(stack);
+		exit_error();
+	}
 	new->value = value;
+	new->index = 0;
 	new->next = NULL;
 	if (*stack == NULL)
 	{

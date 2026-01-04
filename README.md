@@ -106,3 +106,4 @@ This is easy if you did Phase 1 & 2 cleanly.
 *   [ ] Cost calculation algorithm for 100/500.
 *   [ ] **Norminette** compliant.
 *   [ ] **Makefile** does not relink.
+[while true; do ARG="$(shuf -e {1..100}|tr '\n' ' ')"; C=$(./push_swap $ARG|wc -l); [ "$C" -gt 700 ] && echo "$C" && echo $ARG && break; done]

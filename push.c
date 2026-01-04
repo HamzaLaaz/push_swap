@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 17:42:08 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/02 15:27:08 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/04 10:18:04 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	push(t_node **src, t_node **dest, int i)
 {
-	t_node *push;
+	t_node	*push;
 
 	if (!src || !*src)
 		return ;
