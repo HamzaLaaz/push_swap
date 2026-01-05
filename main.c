@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 10:09:50 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/04 14:52:38 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/05 14:03:28 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	sort(t_node **stack_a, t_node **stack_b, int size)
 {
 	if (size == 2)
-		sa(stack_a);
+		sa(stack_a, 1);
 	else if (size == 3)
 		sort_three(stack_a);
 	else if (size == 4)

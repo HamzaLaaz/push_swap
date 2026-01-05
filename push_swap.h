@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:37:49 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/04 15:10:49 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/05 14:02:03 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,23 @@ typedef struct s_node
 /* --- MANDATORY OPERATIONS --- */
 
 // push.c
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **a, t_node **b);
+void	pa(t_node **a, t_node **b, int i);
+void	pb(t_node **a, t_node **b, int i);
 
 // swap.c
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
+void	sa(t_node **a, int i);
+void	sb(t_node **b, int i);
+void	ss(t_node **a, t_node **b, int i);
 
 // rotate.c
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
+void	ra(t_node **a, int i);
+void	rb(t_node **b, int i);
+void	rr(t_node **a, t_node **b, int i);
 
 // rrotate.c
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+void	rra(t_node **a, int i);
+void	rrb(t_node **b, int i);
+void	rrr(t_node **a, t_node **b, int i);
 
 /* --- ALGORITHMS --- */
 

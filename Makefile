@@ -6,7 +6,7 @@
 #    By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/30 09:32:14 by hlaaz             #+#    #+#              #
-#    Updated: 2026/01/05 12:11:36 by hlaaz            ###   ########.fr        #
+#    Updated: 2026/01/05 14:17:59 by hlaaz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,14 +29,20 @@ OBJS		= $(SRCS:.c=.o)
 NAME		= push_swap
 
 BONUS_SRCS	= checker_bonus.c \
-			get_next_line.c\
+			get_next_line.c \
 			get_next_line_utils.c \
-			push.c \
-			swap.c \
-			rrotate.c \
-			rotate.c
+			 ft_atol.c \
+            ft_split.c \
+            parsing.c \
+            error_free.c \
+            list_utils.c \
+			sort_utils.c \
+            push.c \
+            swap.c \
+            rrotate.c \
+            rotate.c
 
-OBJSBNS		= $(BONUS_SRCs:.c=.o)
+OBJSBNS		= $(BONUS_SRCS:.c=.o)
 
 NAME_BONUS	= checker
 

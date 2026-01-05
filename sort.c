@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 12:13:01 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/04 15:09:59 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/05 14:27:23 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void	sort_three(t_node **stack)
 
 	max_node = get_max_node(*stack);
 	if (*stack == max_node)
-		ra(stack);
+		ra(stack, 1);
 	else if ((*stack)->next == max_node)
-		rra(stack);
+		rra(stack, 1);
 	if ((*stack)->value > (*stack)->next->value)
-		sa(stack);
+		sa(stack, 1);
 }
 
 void	sort_four(t_node **a, t_node **b)
@@ -65,13 +65,13 @@ void	sort_four(t_node **a, t_node **b)
 	while (*a != min_node)
 	{
 		if (get_pos(*a, min_node) <= 2)
-			ra(a);
+			ra(a, 1);
 		else
-			rra(a);
+			rra(a, 1);
 	}
-	pb(a, b);
+	pb(a, b, 2);
 	sort_three(a);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	sort_five(t_node **a, t_node **b)
@@ -82,21 +82,21 @@ void	sort_five(t_node **a, t_node **b)
 	while (*a != min_node)
 	{
 		if (get_pos(*a, min_node) <= 2)
-			ra(a);
+			ra(a, 1);
 		else
-			rra(a);
+			rra(a, 1);
 	}
-	pb(a, b);
+	pb(a, b, 2);
 	min_node = get_min_node(*a);
 	while (*a != min_node)
 	{
-		if (get_pos(*a, min_node) <= 1)
-			ra(a);
+		if (get_pos(*a, min_node) <= 2)
+			ra(a, 1);
 		else
-			rra(a);
+			rra(a, 1);
 	}
-	pb(a, b);
+	pb(a, b, 2);
 	sort_three(a);
-	pa(a, b);
-	pa(a, b);
+	pa(a, b, 1);
+	pa(a, b, 1);
 }

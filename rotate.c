@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 11:55:30 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/04 10:17:45 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/05 14:33:32 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,26 @@ static void	rotate(t_node **stack, int i)
 		return ;
 }
 
-void	ra(t_node **a)
+void	ra(t_node **a, int i)
 {
-	rotate(a, 1);
+	if (i == 1)
+		rotate(a, 1);
+	else
+		rotate(a, 3);
 }
 
-void	rb(t_node **b)
+void	rb(t_node **b, int i)
 {
-	rotate(b, 2);
+	if (i == 2)
+		rotate(b, 2);
+	else
+		rotate(b, 3);
 }
 
-void	rr(t_node **a, t_node **b)
+void	rr(t_node **a, t_node **b, int i)
 {
 	rotate(a, 3);
 	rotate(b, 3);
-	write(1, "rr\n", 3);
+	if (i == 4)
+		write(1, "rr\n", 3);
 }

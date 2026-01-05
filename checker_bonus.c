@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:55:32 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/05 11:58:18 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/05 14:30:14 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,29 @@ static void	execute_operation(char *line, t_node **a, t_node **b)
 	if (!line)
 		return ;
 	if (ft_strcmp(line, "sa\n") == 0)
-		sa(a);
+		sa(a, 3);
 	else if (ft_strcmp(line, "sb\n") == 0)
-		sb(b);
+		sb(b, 3);
 	else if (ft_strcmp(line, "ss\n") == 0)
-		ss(a, b);
+		ss(a, b, 3);
 	else if (ft_strcmp(line, "pa\n") == 0)
-		pa(a, b);
+		pa(a, b, 3);
 	else if (ft_strcmp(line, "pb\n") == 0)
-		pb(a, b);
+		pb(a, b, 3);
 	else if (ft_strcmp(line, "ra\n") == 0)
-		ra(a);
+		ra(a, 3);
 	else if (ft_strcmp(line, "rb\n") == 0)
-		rb(b);
+		rb(b, 3);
 	else if (ft_strcmp(line, "rr\n") == 0)
-		rr(a, b);
+		rr(a, b, 3);
 	else if (ft_strcmp(line, "rra\n") == 0)
-		rra(a);
+		rra(a, 3);
 	else if (ft_strcmp(line, "rrb\n") == 0)
-		rrb(b);
+		rrb(b, 3);
 	else if (ft_strcmp(line, "rrr\n") == 0)
-		rrr(a, b);
-	exit_error();
+		rrr(a, b, 3);
+	else
+		exit_error();
 }
 
 static void	read_and_execute(t_node **a, t_node **b)

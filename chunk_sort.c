@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 13:02:01 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/05 11:40:12 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/05 13:58:50 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ void	push_to_b(t_node **a, t_node **b, int size)
 	{
 		if ((*a)->index <= i)
 		{
-			pb(a, b);
-			rb(b);
+			pb(a, b, 2);
+			rb(b, 2);
 			i++;
 		}
 		else if ((*a)->index <= i + range)
 		{
-			pb(a, b);
+			pb(a, b, 2);
 			i++;
 		}
 		else
-			ra(a);
+			ra(a, 1);
 	}
 }
 
@@ -54,13 +54,13 @@ void	push_to_a(t_node **a, t_node **b)
 		if (pos <= size / 2)
 		{
 			while (*b != max)
-				rb(b);
+				rb(b, 2);
 		}
 		else
 		{
 			while (*b != max)
-				rrb(b);
+				rrb(b, 2);
 		}
-		pa(a, b);
+		pa(a, b, 1);
 	}
 }
