@@ -6,26 +6,11 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 13:02:01 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/04 15:16:08 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/05 11:40:12 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	get_pos_by_index(t_node *stack, int index)
-// {
-// 	int	pos;
-
-// 	pos = 0;
-// 	while (stack)
-// 	{
-// 		if (stack->index == index)
-// 			return (pos);
-// 		pos++;
-// 		stack = stack->next;
-// 	}
-// 	return (pos);
-// }
 
 void	push_to_b(t_node **a, t_node **b, int size)
 {
