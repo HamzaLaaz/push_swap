@@ -1,109 +1,84 @@
-# push_swap
-This project is one of the most important algorithmic challenges in the 42 curriculum. It teaches you complexity, sorting, and strict memory management.
+# Push_Swap
 
-Here is a step-by-step strategy to get 100/100 (plus bonuses) on **Push_swap**.
+*This project has been created as part of the 42 curriculum by hlaaz.*
 
----
+## Description
 
-### Phase 1: The Foundation (Parsing & Structures)
-Don't rush into sorting. If your program crashes on bad input, you fail immediately.
+**Push_swap** is a highly structured algorithmic challenge that requires sorting a set of unique integer values using two stacks and a limited set of instructions. The goal is to write a C program that calculates and displays the shortest sequence of actions to sort the data. This project focuses on understanding complexity, rigor in C programming, and the implementation of efficient sorting algorithms.
 
-1.  **Data Structure:**
-    *   Use a **Doubly Linked List**.
-    *   Why? You need access to the `next` (top) and `prev` (bottom) nodes instantly for operations like `rra` (Reverse Rotate).
-    *   Struct suggestion:
-        ```c
-        typedef struct s_stack
-        {
-            int             value;
-            int             index;          // useful for algorithm
-            int             cost;           // useful for algorithm
-            struct s_stack  *target_node;   // useful for algorithm
-            struct s_stack  *next;
-            struct s_stack  *prev;
-        } t_stack;
-        ```
+## Instructions
 
-2.  **Parsing Arguments:**
-    *   Handle both cases: `./push_swap 1 2 3` AND `./push_swap "1 2 3"`.
-    *   **Split:** Use a split function to separate strings by spaces.
-    *   **Validation:** Check for non-digits, `INT_MAX`, `INT_MIN` limits, and **duplicates**.
-    *   *Tip:* Write your own `atol` (long) to check for integer overflows easily.
+### Compilation
 
----
+The project is compiled using a `Makefile` with the flags `-Wall`, `-Wextra`, and `-Werror`.
 
-### Phase 2: The Operations
-Implement the 11 operations exactly as described.
-*   `sa`, `sb`, `ss`
-*   `pa`, `pb`
-*   `ra`, `rb`, `rr`
-*   `rra`, `rrb`, `rrr`
+* To compile the mandatory **push_swap** program:
 
-**Crucial:** Create a separate function for each, and have them print the instruction (e.g., `write(1, "sa\n", 3)`).
-**Test:** Create a tiny `main` to manually run `sa`, `pb`, etc., and print the list to ensure the pointers are moving correctly. If you lose a link here, you get segfaults later.
 
----
+```bash
+make
 
-### Phase 3: Tiny Sorts (Hardcoded)
-Algorithms are too heavy for small stacks. Hardcode the logic for efficiency.
+```
 
-1.  **Stack Size 2:**
-    *   If `a > a->next`, just `sa`.
-2.  **Stack Size 3:**
-    *   There are only 5 unsorted states. Use `if/else` logic to solve them in 1 or 2 moves.
-    *   Example: If the biggest number is at the top, `ra`. Then check again.
-3.  **Stack Size 4 & 5:**
-    *   Push the smallest number(s) to Stack B (`pb`).
-    *   Sort the remaining 3 in Stack A using your "Size 3" logic.
-    *   Push the numbers back from B to A (`pa`).
 
----
+* To compile the bonus **checker** program:
 
-### Phase 4: The Big Algorithm (100 & 500 Numbers)
-**Do not use Radix Sort** if you want 100/100. Radix is stable but often uses too many moves for the 500-number benchmark (you need < 5500 moves).
 
-**Recommended Algorithm: The "Turk" / "Greedy Cost" Algorithm**
-This algorithm calculates the "cost" (number of moves) to put a number in the right place and executes the cheapest move.
+```bash
+make bonus
 
-**Logic Flow:**
-1.  **Push to B:** Push all nodes from A to B until only 3 nodes remain in A. (Optional optimization: Don't push the largest 3 nodes, or keep the Median).
-2.  **Sort A:** Sort the 3 nodes remaining in A.
-3.  **Calculate Target Positions:** For every node in B, look at A. Where does this node belong in A?
-    *   *Logic:* It belongs above the smallest number in A that is *bigger* than itself.
-4.  **Calculate Cost:** For every node in B, calculate how many moves (`ra`, `rb`, `rra`, `rrb`) it takes to get that node to the top of B *AND* its target position to the top of A.
-5.  **Execute Cheapest:** Find the node in B with the lowest cost. Perform the moves (optimize using `rr` or `rrr` if both need to rotate in the same direction). Push to A (`pa`).
-6.  **Repeat:** Do this until B is empty.
-7.  **Final Align:** Rotate A until the smallest number is at the top.
+```
 
-**Why this works:** It adapts to the data rather than forcing a bit-wise sort. It consistently hits ~600 moves for 100 numbers and ~4800 for 500 numbers.
 
----
 
-### Phase 5: The Bonus (Checker)
-This is easy if you did Phase 1 & 2 cleanly.
-1.  Copy your parsing and operations files.
-2.  Use `get_next_line` (or similar) to read from Standard Input.
-3.  For every line read (e.g., "sa\n"), call the corresponding function (suppress the output writing for the checker).
-4.  At the end, check:
-    *   Is Stack B empty?
-    *   Is Stack A sorted?
-    *   Print "OK" or "KO".
+### Execution
 
----
+The programs take a list of integers as arguments. The first argument is placed at the top of the stack.
 
-### Phase 6: Validation & Debugging
-1.  **Visualizer:** You **must** use a visualizer. It helps you see *why* your sort is failing. Search GitHub for "push_swap_visualizer" (there are many made by 42 students).
-2.  **Benchmarks:**
-    *   Generate 100 random numbers: `ARG=$(ruby -e "puts (1..100).to_a.shuffle.join(' ')"); ./push_swap $ARG | wc -l`
-    *   Ensure no leaks: `valgrind ./push_swap ...`
+**Push_swap example:**
 
-### Summary Checklist for Success:
-*   [ ] Handle "string" arguments vs "list" arguments.
-*   [ ] Handle Integer Overflows (MAX/MIN).
-*   [ ] Double Linked List implementation.
-*   [ ] Operations (`sa`, `rra`, etc.) strictly tested.
-*   [ ] Hardcoded logic for size 3, 4, 5.
-*   [ ] Cost calculation algorithm for 100/500.
-*   [ ] **Norminette** compliant.
-*   [ ] **Makefile** does not relink.
-[while true; do ARG="$(shuf -e {1..100}|tr '\n' ' ')"; C=$(./push_swap $ARG|wc -l); [ "$C" -gt 700 ] && echo "$C" && echo $ARG && break; done]
+```bash
+./push_swap 2 1 3 6 5 8
+
+```
+
+**Checker example:**
+
+```bash
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
+
+```
+
+### Available Operations
+
+The following instructions are used to manipulate the stacks:
+
+*
+  **sa / sb / ss**: Swap the first two elements at the top of stack a, b, or both.
+
+
+*
+  **pa / pb**: Push the top element from one stack to the top of the other.
+
+
+*
+  **ra / rb / rr**: Shift all elements up by one (first becomes last).
+
+
+*
+  **rra / rrb / rrr**: Shift all elements down by one (last becomes first).
+
+
+
+## Resources
+
+*
+  **Sorting Algorithms**: Research into various algorithms to meet the benchmarks (e.g., sorting 500 numbers in under 5500 operations).
+
+
+*
+  **Complexity**: Understanding  vs  to optimize the instruction count.
+
+
+*
+  **AI Usage**: AI was used to assist in designing the `get_next_line` logic for the bonus checker and for brainstorming the stack parsing structure. All AI-generated code was thoroughly reviewed and tested to ensure it complies with the Norm and is fully understood by the author.
