@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 17:40:24 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/05 14:33:59 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/06 09:54:28 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	rrotate(t_node **stack, int i)
 	t_node	*first;
 	t_node	*last;
 
-	if (!*stack || !(*stack)->next)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	first = *stack;
 	last = *stack;
@@ -58,5 +58,5 @@ void	rrr(t_node **a, t_node **b, int i)
 	rrotate(a, 3);
 	rrotate(b, 3);
 	if (i == 4)
-		write(1, "rrr\n", 3);
+		write(1, "rrr\n", 4);
 }

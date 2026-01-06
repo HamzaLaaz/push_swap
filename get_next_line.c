@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 11:59:08 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/05 11:59:41 by hlaaz            ###   ########.fr       */
+/*   Created: 2025/11/19 17:26:56 by hlaaz             #+#    #+#             */
+/*   Updated: 2026/01/06 14:46:52 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ static char	*the_remainder(char *stach)
 		return (NULL);
 	while (stach[i] && stach[i] != '\n')
 		i++;
+	if (stach[i] == '\n')
+		i++;
 	if (!stach[i])
 		return (free(stach), NULL);
-	i++;
 	rmd = malloc(ft_strlen(stach) - i + 1);
 	if (!rmd)
 		return (free(stach), NULL);

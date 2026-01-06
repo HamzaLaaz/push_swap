@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:55:32 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/05 14:30:14 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/06 15:55:36 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static int	ft_strcmp(char *s1, char *s2)
 
 static void	execute_operation(char *line, t_node **a, t_node **b)
 {
-	if (!line)
-		return ;
 	if (ft_strcmp(line, "sa\n") == 0)
 		sa(a, 3);
 	else if (ft_strcmp(line, "sb\n") == 0)
@@ -49,7 +47,7 @@ static void	execute_operation(char *line, t_node **a, t_node **b)
 	else if (ft_strcmp(line, "rrr\n") == 0)
 		rrr(a, b, 3);
 	else
-		exit_error();
+		exit_free(a, b, line);
 }
 
 static void	read_and_execute(t_node **a, t_node **b)
@@ -76,6 +74,7 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
 	parsing_argv(argc, argv, &stack_a);
+
 	read_and_execute(&stack_a, &stack_b);
 	if (check_if_sorte(stack_a) && stack_b == NULL)
 		write(1, "OK\n", 3);
@@ -85,3 +84,4 @@ int	main(int argc, char **argv)
 	free_stack(&stack_b);
 	return (0);
 }
+			// free_stack(b);

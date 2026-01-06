@@ -6,7 +6,7 @@
 /*   By: hlaaz <hlaaz@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:37:49 by hlaaz             #+#    #+#             */
-/*   Updated: 2026/01/05 14:02:03 by hlaaz            ###   ########.fr       */
+/*   Updated: 2026/01/06 15:54:39 by hlaaz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void	free_stack(t_node **stack);
 void	free_split(char **strs);
 void	exit_error(void);
 void	exit_with_error(t_node **stack, char **strs);
+void	exit_free(t_node **a, t_node **b, char *line);
 
 #endif
